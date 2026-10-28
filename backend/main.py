@@ -229,8 +229,8 @@ class PredictionResponse(BaseModel):
     classification_reasoning: str
     comparison_with_class_averages: Dict[str, Dict[str, float]]
 
-@app.get("/")
-def read_root():
+@app.get("/api")
+def read_api_info():
     return {
         "service": "AI-Based Classification of Engineering Materials",
         "status": "operational",
@@ -402,7 +402,36 @@ def predict_material(payload: MaterialInput):
 FRONTEND_DIST = os.path.join(os.path.dirname(BASE_DIR), "frontend", "dist")
 if os.path.exists(FRONTEND_DIST):
     from fastapi.staticfiles import StaticFiles
-    app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="static_frontend")
+    from fastapi.responses import FileResponse
+
+    assets_dir = os.path.join(FRONTEND_DIST, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="static_assets")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa_app(full_path: str):
+        # Pass API and documentation routes through
+        if full_path.startswith("api") or full_path in ("docs", "redoc", "openapi.json"):
+            raise HTTPException(status_code=404, detail="Endpoint not found")
+
+        target_file = os.path.join(FRONTEND_DIST, full_path)
+        if full_path and os.path.isfile(target_file):
+            return FileResponse(target_file)
+
+        index_file = os.path.join(FRONTEND_DIST, "index.html")
+        if os.path.exists(index_file):
+            return FileResponse(index_file)
+        raise HTTPException(status_code=404, detail="Index file not found")
+else:
+    @app.get("/")
+    def fallback_root():
+        return {
+            "service": "AI-Based Classification of Engineering Materials",
+            "status": "operational",
+            "model_loaded": model_pipeline is not None,
+            "classes": ["Metals", "Polymers", "Ceramics", "Composites"],
+            "note": "Frontend dist not found. Please build frontend with npm run build."
+        }
 
 if __name__ == "__main__":
     import uvicorn
