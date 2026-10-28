@@ -1,0 +1,229 @@
+{
+  "classes": [
+    "Metals",
+    "Polymers",
+    "Ceramics",
+    "Composites"
+  ],
+  "feature_names": [
+    "density",
+    "tensile_strength",
+    "thermal_conductivity",
+    "electrical_conductivity_log10"
+  ],
+  "feature_descriptions": {
+    "density": "Mass per unit volume (g/cm\u00b3). Fundamental physical property determining component weight.",
+    "tensile_strength": "Ultimate tensile stress before structural necking/fracture (MPa).",
+    "thermal_conductivity": "Rate of thermal energy transport through material gradient (W/m\u00b7K).",
+    "electrical_conductivity_log10": "Logarithmic electrical conductivity (log10 S/m). Spans insulators to conductors."
+  },
+  "metrics": {
+    "test_accuracy": 0.9983,
+    "cv_accuracy_mean": 0.9993,
+    "cv_accuracy_std": 0.0008,
+    "feature_importances": {
+      "density": 0.2901,
+      "tensile_strength": 0.2304,
+      "thermal_conductivity": 0.1814,
+      "electrical_conductivity_log10": 0.2982
+    }
+  },
+  "class_statistics": {
+    "Metals": {
+      "density": {
+        "mean": 6.41,
+        "std": 2.58,
+        "min": 2.4,
+        "max": 11.82
+      },
+      "tensile_strength": {
+        "mean": 571.12,
+        "std": 262.87,
+        "min": 90.0,
+        "max": 1372.6
+      },
+      "thermal_conductivity": {
+        "mean": 124.32,
+        "std": 70.24,
+        "min": 14.0,
+        "max": 372.92
+      },
+      "electrical_conductivity_log10": {
+        "mean": 6.91,
+        "std": 0.45,
+        "min": 5.8,
+        "max": 7.9
+      }
+    },
+    "Polymers": {
+      "density": {
+        "mean": 1.21,
+        "std": 0.23,
+        "min": 0.88,
+        "max": 2.01
+      },
+      "tensile_strength": {
+        "mean": 57.75,
+        "std": 23.03,
+        "min": 12.0,
+        "max": 125.6
+      },
+      "thermal_conductivity": {
+        "mean": 0.24,
+        "std": 0.08,
+        "min": 0.1,
+        "max": 0.5
+      },
+      "electrical_conductivity_log10": {
+        "mean": -11.63,
+        "std": 1.73,
+        "min": -15.0,
+        "max": -6.5
+      }
+    },
+    "Ceramics": {
+      "density": {
+        "mean": 3.67,
+        "std": 0.83,
+        "min": 2.1,
+        "max": 5.86
+      },
+      "tensile_strength": {
+        "mean": 178.4,
+        "std": 81.3,
+        "min": 30.0,
+        "max": 420.0
+      },
+      "thermal_conductivity": {
+        "mean": 41.73,
+        "std": 39.45,
+        "min": 1.2,
+        "max": 180.0
+      },
+      "electrical_conductivity_log10": {
+        "mean": -8.0,
+        "std": 2.41,
+        "min": -13.0,
+        "max": -1.0
+      }
+    },
+    "Composites": {
+      "density": {
+        "mean": 1.65,
+        "std": 0.25,
+        "min": 1.25,
+        "max": 2.45
+      },
+      "tensile_strength": {
+        "mean": 803.82,
+        "std": 306.96,
+        "min": 260.0,
+        "max": 1850.0
+      },
+      "thermal_conductivity": {
+        "mean": 3.39,
+        "std": 2.04,
+        "min": 0.35,
+        "max": 10.63
+      },
+      "electrical_conductivity_log10": {
+        "mean": -2.65,
+        "std": 5.75,
+        "min": -13.0,
+        "max": 4.2
+      }
+    }
+  },
+  "presets": [
+    {
+      "id": "ti-6al-4v",
+      "name": "Titanium Ti-6Al-4V (Grade 5)",
+      "category": "Metals",
+      "density": 4.43,
+      "tensile_strength": 950.0,
+      "thermal_conductivity": 6.7,
+      "electrical_conductivity_log10": 6.18,
+      "description": "Widely used in aerospace and medical implants due to high specific strength and biocompatibility."
+    },
+    {
+      "id": "al-6061-t6",
+      "name": "Aluminum 6061-T6 Alloy",
+      "category": "Metals",
+      "density": 2.7,
+      "tensile_strength": 310.0,
+      "thermal_conductivity": 167.0,
+      "electrical_conductivity_log10": 7.4,
+      "description": "Precipitation-hardened aluminum alloy used in structural and automotive framing."
+    },
+    {
+      "id": "aisi-316l",
+      "name": "Stainless Steel AISI 316L",
+      "category": "Metals",
+      "density": 8.0,
+      "tensile_strength": 580.0,
+      "thermal_conductivity": 16.3,
+      "electrical_conductivity_log10": 6.13,
+      "description": "Austenitic chromium-nickel stainless steel with superior corrosion resistance."
+    },
+    {
+      "id": "peek",
+      "name": "Polyether Ether Ketone (PEEK)",
+      "category": "Polymers",
+      "density": 1.32,
+      "tensile_strength": 100.0,
+      "thermal_conductivity": 0.25,
+      "electrical_conductivity_log10": -14.0,
+      "description": "High-performance semi-crystalline engineering thermoplastic with superior thermal stability."
+    },
+    {
+      "id": "polycarbonate",
+      "name": "Polycarbonate (PC)",
+      "category": "Polymers",
+      "density": 1.2,
+      "tensile_strength": 65.0,
+      "thermal_conductivity": 0.2,
+      "electrical_conductivity_log10": -13.0,
+      "description": "Amorphous thermoplastic with optical transparency, high impact strength, and ductility."
+    },
+    {
+      "id": "alumina-99",
+      "name": "Alumina Ceramic (Al2O3 99.5%)",
+      "category": "Ceramics",
+      "density": 3.92,
+      "tensile_strength": 260.0,
+      "thermal_conductivity": 30.0,
+      "electrical_conductivity_log10": -11.5,
+      "description": "Technical ceramic with high hardness, dielectric insulation, and thermal chemical wear resistance."
+    },
+    {
+      "id": "silicon-carbide",
+      "name": "Silicon Carbide (SiC sintered)",
+      "category": "Ceramics",
+      "density": 3.15,
+      "tensile_strength": 350.0,
+      "thermal_conductivity": 120.0,
+      "electrical_conductivity_log10": -2.0,
+      "description": "Extreme hardness ceramic used in armor plates, mechanical seal faces, and power semiconductors."
+    },
+    {
+      "id": "cfrp-unidirectional",
+      "name": "Carbon Fiber Epoxy Composite (CFRP)",
+      "category": "Composites",
+      "density": 1.55,
+      "tensile_strength": 1450.0,
+      "thermal_conductivity": 5.4,
+      "electrical_conductivity_log10": 2.8,
+      "description": "High-modulus carbon fibers embedded in thermoset polymer matrix for lightweight structural stiffness."
+    },
+    {
+      "id": "gfrp-e-glass",
+      "name": "E-Glass / Epoxy Composite (GFRP)",
+      "category": "Composites",
+      "density": 1.95,
+      "tensile_strength": 750.0,
+      "thermal_conductivity": 0.45,
+      "electrical_conductivity_log10": -11.0,
+      "description": "Fiberglass reinforced polymer composite used widely in wind turbine blades and marine hulls."
+    }
+  ]
+}
