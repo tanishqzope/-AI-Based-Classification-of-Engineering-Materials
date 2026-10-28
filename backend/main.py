@@ -398,6 +398,13 @@ def predict_material(payload: MaterialInput):
         comparison_with_class_averages=comparison
     )
 
+# Static file mounting for unified full-stack single-service hosting (e.g. Render / Railway)
+FRONTEND_DIST = os.path.join(os.path.dirname(BASE_DIR), "frontend", "dist")
+if os.path.exists(FRONTEND_DIST):
+    from fastapi.staticfiles import StaticFiles
+    app.mount("/", StaticFiles(directory=FRONTEND_DIST, html=True), name="static_frontend")
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)

@@ -6,7 +6,9 @@ import ResultCard from "./components/ResultCard";
 import { DEFAULT_PRESETS } from "./data/fallbackPresets";
 import { Play, RotateCcw, AlertCircle, Info } from "lucide-react";
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL 
+  ? import.meta.env.VITE_API_BASE_URL.replace(/\/+$/, "") 
+  : "http://127.0.0.1:8000";
 
 export default function App() {
   // Mechanical & Physical Properties State
